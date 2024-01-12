@@ -24,3 +24,26 @@ const changeTheme = () => {
 };
 
 $themeBtn.addEventListener('click', changeTheme);
+
+// TAB
+
+const /* {NodeList} */ $tabBtn = document.querySelectorAll('[data-tab-btn]');
+let /* {NodeElement} */ [lastActiveTab] =
+		document.querySelectorAll('[data-tab-content]');
+let /* {NodeElement} */ [lastActiveTabBtn] = $tabBtn;
+
+$tabBtn.forEach((item) => {
+	item.addEventListener('click', function () {
+		lastActiveTab.classList.remove('active');
+		lastActiveTabBtn.classList.remove('active');
+
+		const /* {Node Element} */ $tabContent = document.querySelector(
+				`[data-tab-content="${item.dataset.tabBtn}"]`
+			);
+		$tabContent.classList.add('active');
+		this.classList.add('active');
+
+		lastActiveTab = $tabContent;
+		lastActiveTabBtn = this;
+	});
+});
