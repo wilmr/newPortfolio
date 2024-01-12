@@ -47,3 +47,7 @@ $tabBtn.forEach((item) => {
 		lastActiveTabBtn = this;
 	});
 });
+
+document.getElementById(
+	'copyright'
+).innerHTML = `Copyright ${new Date().getFullYear()}. All rights reserved by Wilmer Martinez.`;
